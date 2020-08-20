@@ -9,36 +9,43 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     private var isFinishedTypingNumber: Bool = true
+    
+    private var displayValue: Double {
+        get {
+                guard let number = Double(displayLabel.text!) else {
+                    fatalError("Cannot convert display text label to a Double.")
+                }
+            return number
+        }
+        set {
+            displayLabel.text! = String(newValue)
+        }
+    }
     
     @IBOutlet weak var displayLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+    
+    
+    private var calculator = CalculatorLogic()
+    
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         isFinishedTypingNumber = true
-        guard let number = Double(displayLabel.text!) else {
-            fatalError("Cannot convert display text label to a Double.")
-        }
+        
+        calculator.setNumber(displayValue)
         
         if let calcMethod = sender.currentTitle {
-            
-            if calcMethod == "+/-" {
-                displayLabel.text = String(-1 * number)
-            } else if calcMethod == "%" {
-                displayLabel.text = String(number/100)
-            } else if calcMethod == "C" {
-                displayLabel.text = "0.0"
+
+            if let result = calculator.calculate(symbol: calcMethod) {
+
+            displayValue = result
             }
         }
-        
     }
     
+
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         
         if let numValue = sender.currentTitle {
@@ -48,12 +55,8 @@ class ViewController: UIViewController {
                 isFinishedTypingNumber = false
             } else {
                 if numValue == "." {
-                    
-                    guard let currentDisplayValue = Double(displayLabel.text!) else {
-                        fatalError("Cannot convert display text label to a Double. ")
-                    }
                 
-                    let isInt = floor(currentDisplayValue) == currentDisplayValue
+                    let isInt = floor(displayValue) == displayValue
                     
                     if !isInt {
                         return
@@ -62,9 +65,8 @@ class ViewController: UIViewController {
                 
                 displayLabel.text = displayLabel.text! + numValue
             }
-            
-            
         }
     }
+    
 }
 
