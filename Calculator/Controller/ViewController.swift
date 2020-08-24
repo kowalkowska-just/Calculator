@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
 
     
-    
     private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
@@ -44,21 +43,24 @@ class ViewController: UIViewController {
             }
         }
     }
-    
 
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         
         if let numValue = sender.currentTitle {
             
             if isFinishedTypingNumber {
-                displayLabel.text = numValue
+                
+                if numValue == "." {
+                    displayLabel.text = "0."
+                } else {
+                    displayLabel.text = numValue
+                }
+                
                 isFinishedTypingNumber = false
+                
             } else {
                 if numValue == "." {
-                
-                    let isInt = floor(displayValue) == displayValue
-                    
-                    if !isInt {
+                    if displayLabel.text?.contains(".") == true {
                         return
                     }
                 }
@@ -67,6 +69,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
 }
+    
 
