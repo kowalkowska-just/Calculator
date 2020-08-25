@@ -5,7 +5,7 @@
 //  Created by Justyna Kowalkowska on 19/08/2020.
 //  Copyright © 2020 Justyna Kowalkowska. All rights reserved.
 
-import Foundation
+import UIKit
 
 struct CalculatorLogic {
     
@@ -27,11 +27,22 @@ struct CalculatorLogic {
                 case "%":
                     return n * 0.01
                 case "C":
+                    isOperationTapped = false
+                    intermediateCalculation = nil
                     return 0.0
                 case "=":
+                    isOperationTapped = false
                     return performTwoNumCalculationResult(n2: n)
                 default:
-                    intermediateCalculation = (n1: n, calcMethod: symbol)
+                    if isOperationTapped == false {
+                        intermediateCalculation = (n1: n, calcMethod: symbol)
+                        isOperationTapped = true
+                    } else {
+                        if let result = performTwoNumCalculationResult(n2: n) {
+                        intermediateCalculation = (n1: result, calcMethod: symbol)
+                            return result
+                        }
+                    }
                 }
             }
     
@@ -59,5 +70,5 @@ struct CalculatorLogic {
             }
             return nil
         }
-    
 }
+

@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                 if numValue == "." {
                     displayLabel.text = "0."
                 } else {
-                    displayLabel.text = numValue
+                displayLabel.text = numValue
                 }
                 
                 isFinishedTypingNumber = false
@@ -63,6 +63,8 @@ class ViewController: UIViewController {
                     if displayLabel.text?.contains(".") == true {
                         return
                     }
+                } else if displayValue == 0.0 && numValue == "0" {
+                    return
                 }
                 
                 displayLabel.text = displayLabel.text! + numValue
