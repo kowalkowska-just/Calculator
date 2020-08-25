@@ -25,8 +25,15 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var displayLabel: UILabel!
-
     
+    override func viewDidLoad() {
+        
+        //Adjusting resize font
+        displayLabel.adjustsFontSizeToFitWidth = true
+        displayLabel.minimumScaleFactor = 0.2
+    }
+
+
     private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
@@ -59,6 +66,7 @@ class ViewController: UIViewController {
                 isFinishedTypingNumber = false
                 
             } else {
+                
                 if numValue == "." {
                     if displayLabel.text?.contains(".") == true {
                         return

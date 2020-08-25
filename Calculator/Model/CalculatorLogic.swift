@@ -45,9 +45,7 @@ struct CalculatorLogic {
                     }
                 }
             }
-    
             return nil
-    
         }
     
         private func performTwoNumCalculationResult(n2: Double) -> Double? {
