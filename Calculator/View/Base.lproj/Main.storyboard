@@ -27,6 +27,9 @@
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="60"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="suu-f9-5ZO" appends="YES" id="AvS-Zm-pu2"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                         <constraints>
@@ -317,6 +320,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="suu-f9-5ZO">
+                    <connections>
+                        <action selector="deleteSwipe:" destination="BYZ-38-t0r" id="Mvs-iZ-Ymx"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>

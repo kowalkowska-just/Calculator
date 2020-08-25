@@ -10,8 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
     private var isFinishedTypingNumber: Bool = true
     
+    @IBAction func deleteSwipe(_ sender: Any) {
+        
+        displayLabel.text?.removeLast()
+        
+        if let display = displayLabel.text?.count {
+            if display == 0 {
+                displayLabel.text = "0"
+                isFinishedTypingNumber = true
+            }
+        }
+    }
+
     private var displayValue: Double {
         get {
                 guard let number = Double(displayLabel.text!) else {
