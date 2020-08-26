@@ -52,13 +52,19 @@ class ViewController: UIViewController {
         let board = UIPasteboard.general
         board.string = displayLabel.text
     }
+    
+    override func paste(_ sender: Any?) {
+        if let myString = UIPasteboard.general.string {
+            displayLabel.text = myString
+        }
+    }
 
     override var canBecomeFirstResponder: Bool {
         return true
     }
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action == #selector(copy(_:))
+        return (action == #selector(copy(_:)) || action == #selector(paste(_:)))
     }
     
     
