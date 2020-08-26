@@ -29,7 +29,6 @@
                                                 <nil key="highlightedColor"/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="suu-f9-5ZO" appends="YES" id="AvS-Zm-pu2"/>
-                                                    <outletCollection property="gestureRecognizers" destination="DBM-6v-Zkq" appends="YES" id="OPH-QZ-duS"/>
                                                 </connections>
                                             </label>
                                         </subviews>
@@ -326,11 +325,6 @@
                         <action selector="deleteSwipe:" destination="BYZ-38-t0r" id="Mvs-iZ-Ymx"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="DBM-6v-Zkq">
-                    <connections>
-                        <action selector="copyTap:" destination="BYZ-38-t0r" id="2yN-z3-5EI"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>

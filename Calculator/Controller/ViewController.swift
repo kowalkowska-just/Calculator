@@ -10,7 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var displayLabel: UILabel!
+    
     private var isFinishedTypingNumber: Bool = true
+    
     
     @IBAction func deleteSwipe(_ sender: Any) {
         
@@ -23,12 +26,41 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func copyTap(_ sender: Any) {
+    
+    override func viewDidLoad() {
         
-        print("I tapped")
-        UIPasteboard.general.string = displayLabel.text
+        //Adjusting resize font
+        displayLabel.adjustsFontSizeToFitWidth = true
+        displayLabel.minimumScaleFactor = 0.7
+        
+        displayLabel.isUserInteractionEnabled = true
+        let longPress = UILongPressGestureRecognizer.init(target: self, action: #selector((longPressFunctin(_:))))
+        displayLabel.addGestureRecognizer(longPress)
+
     }
+
+    @objc func longPressFunctin(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        displayLabel.becomeFirstResponder()
+        let menu = UIMenuController.shared
+        if !menu.isMenuVisible {
+            menu.arrowDirection = UIMenuController.ArrowDirection.down
+            menu.showMenu(from: view, rect: CGRect(x: self.displayLabel.center.x, y: self.displayLabel.center.y - 8, width: 0.0, height: 0.0))
+        }
+    }
+
+    override func copy(_ sender: Any?) {
+        let board = UIPasteboard.general
+        board.string = displayLabel.text
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(copy(_:))
+    }
+    
     
     private var displayValue: Double {
         get {
@@ -41,18 +73,10 @@ class ViewController: UIViewController {
             displayLabel.text! = String(newValue)
         }
     }
-    
-    @IBOutlet weak var displayLabel: UILabel!
-    
-    override func viewDidLoad() {
-        
-        //Adjusting resize font
-        displayLabel.adjustsFontSizeToFitWidth = true
-        displayLabel.minimumScaleFactor = 0.2
-    }
 
-
+    
     private var calculator = CalculatorLogic()
+    
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
@@ -69,6 +93,7 @@ class ViewController: UIViewController {
         }
     }
 
+    
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         
         if let numValue = sender.currentTitle {
