@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     private var isFinishedTypingNumber: Bool = true
     
     @IBAction func deleteSwipe(_ sender: Any) {
@@ -25,6 +24,12 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func copyTap(_ sender: Any) {
+        
+        print("I tapped")
+        UIPasteboard.general.string = displayLabel.text
+    }
+    
     private var displayValue: Double {
         get {
                 guard let number = Double(displayLabel.text!) else {
