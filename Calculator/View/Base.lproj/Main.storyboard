@@ -78,11 +78,13 @@
                                                 <rect key="frame" x="312.66666666666669" y="0.0" width="101.33333333333331" height="133.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="/">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="calcButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dej-jV-7mq"/>
+                                                    <action selector="functionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ch-RS-e1C"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -127,11 +129,13 @@
                                                 <rect key="frame" x="312.66666666666669" y="0.0" width="101.33333333333331" height="134"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="x">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="calcButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUz-Tt-Zku"/>
+                                                    <action selector="functionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZX-p4-7s8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -176,11 +180,13 @@
                                                 <rect key="frame" x="312.66666666666669" y="0.0" width="101.33333333333331" height="133.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="calcButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2oq-Vx-m9R"/>
+                                                    <action selector="functionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hmw-CI-bme"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -225,11 +231,14 @@
                                                 <rect key="frame" x="312.66666666666669" y="0.0" width="101.33333333333331" height="134"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="calcButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D88-6L-g17"/>
+                                                    <action selector="functionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VoB-Co-sYb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -317,6 +326,10 @@
                     </view>
                     <connections>
                         <outlet property="displayLabel" destination="eKw-Q6-ujR" id="M7E-nj-VXc"/>
+                        <outletCollection property="functionButtonCollection" destination="9cd-8V-PfQ" collectionClass="NSMutableArray" id="10o-Hf-omd"/>
+                        <outletCollection property="functionButtonCollection" destination="JRA-Wu-g9U" collectionClass="NSMutableArray" id="rro-Pa-3Nz"/>
+                        <outletCollection property="functionButtonCollection" destination="eQH-iM-Ald" collectionClass="NSMutableArray" id="eQ0-WI-ND1"/>
+                        <outletCollection property="functionButtonCollection" destination="wjF-hm-SeR" collectionClass="NSMutableArray" id="3La-7i-RnQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

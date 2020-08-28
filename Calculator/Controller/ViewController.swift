@@ -27,6 +27,19 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet var functionButtonCollection: [UIButton]!
+    
+    
+    @IBAction func functionButtonPressed(_ sender: UIButton) {
+        
+        functionButtonCollection.forEach ({ $0.isSelected = false
+        })
+        
+        sender.isSelected = true
+    }
+    
+    
+    
     override func viewDidLoad() {
         
         //Adjusting resize font
@@ -120,7 +133,7 @@ class ViewController: UIViewController {
                     if displayLabel.text?.contains(".") == true {
                         return
                     }
-                } else if displayValue == 0.0 && numValue == "0" {
+                } else if displayLabel.text == "0" && numValue == "0" {
                     return
                 }
                 
