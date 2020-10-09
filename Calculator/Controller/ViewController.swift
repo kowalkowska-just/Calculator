@@ -32,10 +32,10 @@ class ViewController: UIViewController {
     
     @IBAction func functionButtonPressed(_ sender: UIButton) {
         
-        functionButtonCollection.forEach ({ $0.isSelected = false
+        functionButtonCollection.forEach ({ $0.backgroundColor = UIColor.systemOrange
         })
         
-        sender.isSelected = true
+        sender.backgroundColor = UIColor.systemYellow
     }
     
     
